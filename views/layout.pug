@@ -1,35 +1,10 @@
 doctype html
 html
-include includes/head 
-  ./views/includes/head.pug
-  meta(charset="utf-8")
-meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-meta(name="description" content="")
-meta(name="author" content="Scott G-C")
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+  include includes/head
+   
   body
-  includes/header
-  header
-  nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
-    a.navbar-brand(href="#") Chirp
-    button.navbar-toggler(type="button"
-                          data-toggle="collapse"
-                          data-target="#navbarCollapse"
-                          aria-controls="navbarCollapse"
-                          aria-expanded="false"
-                          aria-label="Toggle navigation")
-      span.navbar-toggler-icon
-
-    #navbarCollapse.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-        li.nav-item: a.nav-link(href="#") Home
-        li.nav-item: a.nav-link(href="#") Link
-        li.nav-item: a.nav-link.disabled(href="#") Disabled
+   include includes/header
     block content
-    includes/footer
-    footer.footer
-  .container
-    .text-muted
-      | How can you elevate your trash-talking game?
+   include includes/footer
+    
 include includes/foot
