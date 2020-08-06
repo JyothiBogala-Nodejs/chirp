@@ -1,10 +1,35 @@
 doctype html
 html
-  head
+include includes/head 
+  ./views/includes/head.pug
+  meta(charset="utf-8")
+meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+meta(name="description" content="")
+meta(name="author" content="Scott G-C")
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+  includes/header
+  header
+  nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+    a.navbar-brand(href="#") Chirp
+    button.navbar-toggler(type="button"
+                          data-toggle="collapse"
+                          data-target="#navbarCollapse"
+                          aria-controls="navbarCollapse"
+                          aria-expanded="false"
+                          aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+
+    #navbarCollapse.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item: a.nav-link(href="#") Home
+        li.nav-item: a.nav-link(href="#") Link
+        li.nav-item: a.nav-link.disabled(href="#") Disabled
     block content
-    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
-script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
-script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js' integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI' crossorigin='anonymous')
+    includes/footer
+    footer.footer
+  .container
+    .text-muted
+      | How can you elevate your trash-talking game?
+include includes/foot
