@@ -6,7 +6,19 @@ exports.signupForm = function(req, res) {
 };
 
 exports.create = function(req, res) {
-     console.log(req.body)
+    var username = req.body.email;
+    var password = req.body.password;
 
-     res.redirect('/')
+    var newUser = new User({
+      username: username,
+      password: password
+    });
+
+    newUser.save(function(err) {
+      if (err) throw err;
+
+      console.log('User saved successfully!');
+    });
+
+    res.redirect('/');
 };
