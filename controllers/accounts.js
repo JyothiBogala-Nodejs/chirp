@@ -2,11 +2,11 @@ var express = require('express');
 var User = require('../models/user');
 
 exports.signupForm = function(req, res) {
-    res.render('accounts/new');
+    res.render('accounts/new', { user: {}, errors: [] });
 };
 
 exports.create = function(req, res) {
-    var username = req.body.email;
+    var username = req.body.username;
     var password = req.body.password;
 
     var newUser = new User({
@@ -15,10 +15,11 @@ exports.create = function(req, res) {
     });
 
     newUser.save(function(err) {
-      if (err) throw err;
-
-      console.log('User saved successfully!');
+      if (err) {
+        res.render('accounts/new', { user: newUser, errors: err.errors });
+      } else {
+        res.redirect('/');
+        console.log('User saved successfully!');
+      }
     });
-
-    res.redirect('/');
 };
